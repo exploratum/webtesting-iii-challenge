@@ -23,15 +23,7 @@ describe('display text', () => {
     })
 })
 
-// describe('checks default display values are green', () => {
-//     const {getByText} = render(<Display />);
 
-//     const openCloseDisplay = getByText(/Open/i);
-//     const lockUnlockDisplay = getByText(/Unlocked/i);
-
-//     expect(openCloseDisplay).toHaveStyle('background-color: limegreen;')
-
-// })
 
 
 

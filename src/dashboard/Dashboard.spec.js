@@ -54,5 +54,4 @@ describe('display change when clicking button', () => {
             getByText(/^Locked$/i)
     })
 
-    // it('checks that ')
 })

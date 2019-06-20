@@ -12,26 +12,21 @@ it('renders without crashing', () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-// describe('Open/Close Gate button', () => {
-//     it('toggles  between open Gate and Close Gate after clicking', () => {
-//         let {getByText} = render(<Controls />);
 
-//         const openCloseBtn = getByText(/Close Gate/i);
-//         fireEvent.click(openCloseBtn);
-//         getByText(/Open Gate/i);
-//     })
-// })
 
-describe('Lock/Unlock Gate button', () => {
-    it('toggles  between Lock Gate and Unlock Gate after clicking', () => {
-        let {getByText} = render(<Controls />);
-
-        const openCloseBtn = getByText(/Close Gate/i);
-        const lockUnlockGate = getByText(/Lock Gate/i);
-
-        fireEvent.click(openCloseBtn);
-        fireEvent.click(lockUnlockGate);
-
-        getByText(/Unlock Gate/i);
+describe('Disabled buttons', () => {
+    it('shows that Lock Gate button is disabled in the initial state when the option of closing the gate is active (doors is open)', 
+    ()=> {
+        const {getByText} = render(<Controls/>)
+        expect(getByText(/Lock Gate/i).hasAttribute('disabled')).toBeTruthy()
     })
+
+    it('shows that Open Gate button is disabled when the option of unlocking the gate is active (doors is locked)', 
+    ()=> {
+
+        const {getByText} = render(<Controls closed={true} locked={true}/>)
+        expect(getByText(/Open Gate/i).hasAttribute('disabled')).toBeTruthy()
+    })
+
+
 })
